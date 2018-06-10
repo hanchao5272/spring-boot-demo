@@ -47,3 +47,19 @@ Spring Boot版本: `1.5.2.RELEASE`
 - yml可以通过`---`来实现文件分割，减少文件个数
 
 ## MyBatis
+
+### mybatis基本配置
+- 参考：https://blog.csdn.net/Winter_chen001/article/details/77249029
+- 组件：web、mybatis、mysql、jackson、PageHelper、druid、mgb
+- 数据源配置：spring.datasource.**
+- mybatis配置：mybatis.mappler-locations/type-aliases-package
+
+### 分页配置
+- pagehelper分页插件
+
+### mgb配置
+- 修改mgb配置文件generatorConfig.xml
+- 使用mgb：mvn项目---mybatis-generator:generate -e
+- 生成：Mapper、Entity、Mapper.xml
+- 启动类添加@MapperScan("pers...mapper"),进行Mapper类的自动加载
+-

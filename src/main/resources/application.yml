@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: test
+    active: dev
 ---
 person:
   name: zhangsan-dev
@@ -12,7 +12,40 @@ person:
   greeting: hello, I'm ${person.name}
 spring:
   profiles: dev
+  datasource:
+    # 基础数据源配置
+    url: jdbc:mysql://localhost:3306/exam
+    username: root
+    password: 1qaz@WSX
+    driver-class-name: com.mysql.jdbc.Driver
+    # 连接池配置
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+# mybatis配置
+mybatis:
+  # 映射文件目录
+  mapper-locations: classpath:mapping/*.xml
+  # 实体目录
+  type-aliases-package: pers.hanchao.springbootdemo.mybatis.model
 
+# 分页配置
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
 ---
 person:
   name: zhangsan-test
