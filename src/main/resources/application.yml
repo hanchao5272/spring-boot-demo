@@ -1,0 +1,38 @@
+spring:
+  profiles:
+    active: test
+---
+person:
+  name: zhangsan-dev
+  age: 25
+  number: ${random.int}
+  uuid: ${random.uuid}
+  max: ${random.int(10)}
+  value: ${random.value}
+  greeting: hello, I'm ${person.name}
+spring:
+  profiles: dev
+
+---
+person:
+  name: zhangsan-test
+  age: 25
+  number: ${random.int}
+  uuid: ${random.uuid}
+  max: ${random.int(10)}
+  value: ${random.value}
+  greeting: hello, I'm ${person.name}
+spring:
+  profiles: test
+
+---
+person:
+  name: zhangsan-prod
+  age: 25
+  number: ${random.int}
+  uuid: ${random.uuid}
+  max: ${random.int(10)}
+  value: ${random.value}
+  greeting: hello, I'm ${person.name}
+spring:
+  profiles: prod
